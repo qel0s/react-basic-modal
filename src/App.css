@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 85%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modal_show_button {
+    padding: 12px 50px;
+    background: #a8dadc;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d3557;
+    transition: ease .4s all;
+    box-shadow: 0px 0px 65px #e63946;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal_show_button::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background-color: #e63946;
+    height: 10%;
+    transition: ease .4s all;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(230, 57, 70, 1);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(230, 57, 70, 1);
+    box-shadow: 0px 0px 10px 1px rgba(230, 57, 70, 1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal_show_button:hover::before {
+    width: 100%;
+    border-radius: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+.modal_show_button:hover {
+    text-shadow: 0px 0px 5px #1d3557;
+    transition: ease .4s all;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/** Modal CSS **/
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999999;
+    transition: 0.4s ease;
+}
+
+.modal .modal__container {
+    width: 550px;
+    height: 300px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.5s ease 0.3s;
+}
+
+.modal .modal__container .modal__header {
+    height: 20%;
+    border-bottom: 1px solid #aaaaaa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .modal__container .modal__header h2 {
+    font-size: 2rem;
+    padding-left: 3%;
+    color: #333;
+}
+
+.modal .modal__container .modal__header button {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: transparent;
+    border: 2px solid #555;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal .modal__container .modal__header button:hover {
+    border: 2px solid #000;
+    color: #000;
+}
+
+.modal .modal__container .modal__content {
+    height: 80%;
+    padding: 3% 5%;
+}
+
+.modal .modal__container .modal__content p {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0px 0px 10px;
+}
+
+.modal .modal__container .modal__content button {
+    background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 85%);
+    height: 2.5rem;
+    width: 120px;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .modal__container.hide {
+    transform: scale(0);
+    transform: translateX(-10%);
+}
+
+.pasif {
+    opacity: 0;
+    transition: ease 1s all;
+}
+
+.aktif {
+    opacity: 1;
+    transition: ease 1s all;
 }
