@@ -134,13 +134,3 @@ body {
     transform: scale(0);
     transform: translateX(-10%);
 }
-
-.pasif {
-    opacity: 0;
-    transition: ease 1s all;
-}
-
-.aktif {
-    opacity: 1;
-    transition: ease 1s all;
-}
